@@ -39,9 +39,9 @@
 
 				<?php
 			    $mysqli = new mysqli("localhost", "root", "3sKCoNa1LjVwVAqY", "blogposts");
-
-			    if($mysqli) {
-				    $result = $mysqli->query("SELECT * FROM posts");
+				  $result = $mysqli->query("SELECT * FROM posts");
+			    
+			    if($result) {
 				    $firstPost = mysqli_fetch_array($result);	    
 
 						$name = (string)$firstPost[1];
