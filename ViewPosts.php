@@ -21,11 +21,9 @@
 
 	<header>
 		<section class="intro-wrapper">
-			<p>The content of the front page template is displayed here.
-				<br>This is a great place to add your “call to action” with a brief message.
-				<br>The image behind this text is added as a featured image.
-				<br>If you wish to add a button like below, use a CSS class: button-minimal.</p>
-			<button class="header-button">BUTTON</button>
+			<p>This page is where you can create a post to your blog.
+				<br>Include the title of your post and your name.
+				<br>It will upload the info to a MySQL database and redirect you to all the current posts.
 		</section>
 	</header>
 
