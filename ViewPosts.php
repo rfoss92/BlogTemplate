@@ -32,13 +32,15 @@
 	<section class="blog-area">
 		<section class="blog-wrapper">
 			<section class="blog-text">
+
+				<section class='postHeader'>My First Post</section>
+				 <section class='postAuthor'>by Anonymous</section>
+				<br><section class='postBody'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section><hr>
+
 				<?php
 			    $mysqli = new mysqli("localhost", "root", "3sKCoNa1LjVwVAqY", "blogposts");
 			    $result = $mysqli->query("SELECT * FROM posts");
-			    // $numberOfRows = mysqli_num_rows($result);
-
-			    $firstPost = mysqli_fetch_array($result);
-			    // print_r($firstPost);			    
+			    $firstPost = mysqli_fetch_array($result);	    
 
 					$name = (string)$firstPost[1];
 					$title = (string)$firstPost[2];
@@ -48,21 +50,15 @@
 						. "<br><section class='postBody'>$blogText</section><hr>";
 
 			    $restOfThePosts = mysqli_fetch_all($result);
-			    // print_r($restOfThePosts);
 
 			    foreach($restOfThePosts as $post){
-
-					$name = (string)$post[1];
-					$title = (string)$post[2];
-					$blogText = (string)$post[3];
-
-					echo "<section class='postHeader'>$title</section>"
-						. "<section class='postAuthor'>by $name</section>"
-						. "<br><section class='postBody'>$blogText</section><hr>";
-
+						$name = (string)$post[1];
+						$title = (string)$post[2];
+						$blogText = (string)$post[3];
+						echo "<section class='postHeader'>$title</section>"
+							. "<section class='postAuthor'>by $name</section>"
+							. "<br><section class='postBody'>$blogText</section><hr>";
 			    }
-
-
 
 				?>
 			</section>			
