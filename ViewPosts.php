@@ -39,26 +39,30 @@
 
 				<?php
 			    $mysqli = new mysqli("localhost", "root", "3sKCoNa1LjVwVAqY", "blogposts");
-			    $result = $mysqli->query("SELECT * FROM posts");
-			    $firstPost = mysqli_fetch_array($result);	    
 
-					$name = (string)$firstPost[1];
-					$title = (string)$firstPost[2];
-					$blogText = (string)$firstPost[3];
-					echo "<section class='postHeader'>$title</section>"
-						. "<section class='postAuthor'>by $name</section>"
-						. "<br><section class='postBody'>$blogText</section><hr>";
+			    if($mysqli) {
+				    $result = $mysqli->query("SELECT * FROM posts");
+				    $firstPost = mysqli_fetch_array($result);	    
 
-			    $restOfThePosts = mysqli_fetch_all($result);
-
-			    foreach($restOfThePosts as $post){
-						$name = (string)$post[1];
-						$title = (string)$post[2];
-						$blogText = (string)$post[3];
+						$name = (string)$firstPost[1];
+						$title = (string)$firstPost[2];
+						$blogText = (string)$firstPost[3];
 						echo "<section class='postHeader'>$title</section>"
 							. "<section class='postAuthor'>by $name</section>"
 							. "<br><section class='postBody'>$blogText</section><hr>";
+
+				    $restOfThePosts = mysqli_fetch_all($result);
+
+				    foreach($restOfThePosts as $post){
+							$name = (string)$post[1];
+							$title = (string)$post[2];
+							$blogText = (string)$post[3];
+							echo "<section class='postHeader'>$title</section>"
+								. "<section class='postAuthor'>by $name</section>"
+								. "<br><section class='postBody'>$blogText</section><hr>";
+			    	}
 			    }
+
 
 				?>
 			</section>			
